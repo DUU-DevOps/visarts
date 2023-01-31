@@ -2,6 +2,10 @@ import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Link, Typography, Butt
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
+import { createURL } from './sanityClient.js';
+import axios from 'axios';
+import { useEffect } from 'react'
+
 
 const Navbar = (props) => {
     const menuItems = require('../resources/menuItems.json').menuItems;
@@ -14,6 +18,15 @@ const Navbar = (props) => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+    const ARTIST_URL = createURL("artist");
+
+    useEffect(() => {
+        axios.get(ARTIST_URL)
+        .then((response) => {
+            console.log(response);
+        });
+    }, [ARTIST_URL]);
 
     return (
         <Box>
