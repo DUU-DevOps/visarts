@@ -9,8 +9,6 @@ import { useEffect } from 'react'
 
 const Navbar = (props) => {
     const menuItems = require('../resources/menuItems.json').menuItems;
-    console.log(menuItems);
-
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -19,14 +17,13 @@ const Navbar = (props) => {
         setAnchorElNav(null);
     };
 
-    const ARTIST_URL = createURL("artist");
-
-    useEffect(() => {
-        axios.get(ARTIST_URL)
-        .then((response) => {
-            console.log(response);
-        });
-    }, [ARTIST_URL]);
+    // const ARTIST_URL = createURL("artist");
+    // useEffect(() => {
+    //     axios.get(ARTIST_URL)
+    //     .then((response) => {
+    //         console.log(response);
+    //     });
+    // }, [ARTIST_URL]);
 
     return (
         <Box>
