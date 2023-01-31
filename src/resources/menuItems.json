@@ -1,0 +1,24 @@
+{
+    "menuItems": [
+        {
+            "title": "Meet Us",
+            "to": "/meet-us"
+        },
+        {
+            "title": "Events",
+            "to": "/events"
+        },
+        {
+            "title": "Artist Spotlight",
+            "to": "/artist-spotlight"
+        },
+        {
+            "title": "Get Involved",
+            "to": "/get-involved"
+        },
+        {
+            "title": "Alumni",
+            "to": "/alumni"
+        }
+    ]
+}
