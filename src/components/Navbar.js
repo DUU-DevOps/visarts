@@ -26,8 +26,8 @@ const Navbar = (props) => {
     // }, [ARTIST_URL]);
 
     return (
-        <Box>
-            <AppBar>
+        <Box sx = {{flexGrow: 1}}>
+            <AppBar position = "static">
                 <Toolbar disableGutters sx = {{paddingRight: "20px", paddingLeft: "20px"}}>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton onClick = {handleOpenNavMenu}>

@@ -15,7 +15,7 @@ const client = sanityClient({
 const builder = imageUrlBuilder(client)
 
 export const grabImage = (source) => {
-    return builder.image(source)
+    return builder.image(source).toString();
 }
 
 export const createURL = (type) => {
