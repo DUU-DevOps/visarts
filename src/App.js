@@ -11,10 +11,15 @@ import ArtistSpotlight from './components/artistSpotlight/ArtistSpotlight.js';
 import GetInvolved from './components/getInvolved/GetInvolved.js';
 import AlumniPage from './components/alumniPage/AlumniPage.js';
 import Homepage from './components/homepage/Homepage.js';
+import Helmet from 'react-helmet';
+
 
 function App() {
   return (
     <div className="App">
+      <Helmet>
+            <style>{'body { background-color: #84c3eb; }'}</style>
+      </Helmet>
       <Router>
           <Navbar />
           <Routes>

@@ -5,6 +5,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import { createURL } from './sanityClient.js';
 import axios from 'axios';
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
+
 
 
 const Navbar = (props) => {
@@ -25,9 +27,10 @@ const Navbar = (props) => {
     //     });
     // }, [ARTIST_URL]);
 
+    const currLoc = useLocation().pathname;
     return (
-        <Box sx = {{flexGrow: 1}}>
-            <AppBar position = "static">
+        <Box sx = {{flexGrow: 1, marginBottom: "20px"}}>
+            <AppBar position = "fixed" style = {{background: "#84c3eb", boxShadow: 'none'}}>
                 <Toolbar disableGutters sx = {{paddingRight: "20px", paddingLeft: "20px"}}>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton onClick = {handleOpenNavMenu}>
@@ -63,11 +66,13 @@ const Navbar = (props) => {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "flex-end">
                         {menuItems.map((m) => (
+
                         <Link href = {m.to} style = {{textDecoration: 'none', color: 'white'}}>
                             <Button
+                                variant = {currLoc === m.to ? "contained": "normal"}
                                 key={m}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block', fontFamily: "Playfair Display, serif", textTransform: 'none', backgroundColor: currLoc ===  m.to ? "#815299": "", borderRadius: "20px" }}
                             >
                                 {m.title}
                             </Button>

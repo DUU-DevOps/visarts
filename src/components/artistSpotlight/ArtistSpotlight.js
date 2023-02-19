@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import { createURL, grabImage } from '../sanityClient.js';
 import axios from 'axios';
-import {Grid, Avatar, Card, Typography, CardContent, CardMedia, Paper} from '@mui/material';
+import {Grid, Avatar, Card, Typography, CardContent, CardMedia, Paper, Zoom, Slide, Fade} from '@mui/material';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../../resources/artistSpotlight.css';
@@ -35,21 +35,22 @@ const ArtistSpotlight = (props) => {
 
     console.log(artistImages);
     return  (
-        <div style = {{margin: 10}}>
+        <div style = {{marginTop: 50, marginLeft: 10, marginRight: 10}}>
+            <Fade {...(artistInfo.name != "" ? { timeout: 1000 } : {})}  in={artistInfo.name != ""} mountOnEnter unmountOnExit>
             <Grid container  alignItems = "flex-start" justifyContent = "space-evenly" >
-                <Grid style = {{margin: 10}} align = "center" item xs = {5} sx={{ fontFamily: 'monospace', backgroundColor: "#f5f3f2", padding: "10px"  }} component = {Paper}>
-                    <h1 className = "header">
-                        {artistInfo.name}
-                    </h1>
-                    <CardMedia >
-                        <Avatar src = {artistInfo.image}  sx = {{width: 300, height: 300, border: "5px solid #f5f3f2", marginBottom: "20px"}}/>
-                    </CardMedia>
-                    <Typography  variant='subtitle1' sx={{ fontFamily: "Playfair Display, serif", align: "center", backgroundColor: "#f5f3f2"  }}>
-                        {artistInfo.description}
-                    </Typography>
-                </Grid>
-                <Grid item xs = {6} style = {{margin: 10}} >
-                    <Carousel autoPlay = {true} infiniteLoop = {true}>
+                    <Grid style = {{margin: 10}} align = "center" item xs = {12} md = {5} sx={{ fontFamily: 'monospace', padding: "10px" }} >
+                        <h1 className = "header">
+                            {artistInfo.name}
+                        </h1>
+                        <CardMedia >
+                            <Avatar src = {artistInfo.image}  sx = {{width: 300, height: 300, border: "5px solid #efaf40", marginBottom: "20px"}}/>
+                        </CardMedia>
+                        <Typography  variant='subtitle1' sx={{ fontFamily: "Playfair Display, serif", align: "center", padding: '10px', borderRadius: '10px'  }}>
+                            {artistInfo.description}
+                        </Typography>
+                    </Grid>
+                <Grid item xs = {12} md = {6} style = {{margin: 10}} >
+                <Carousel autoPlay = {true} infiniteLoop = {true} >
                         {artistImages.map((img, key) => {
                             return(
                                 <div style = {{height: "700px"}} key = {key}>
@@ -60,6 +61,7 @@ const ArtistSpotlight = (props) => {
                     </Carousel>
                 </Grid>
             </Grid>
+            </Fade>
         </div>
     )
 }
