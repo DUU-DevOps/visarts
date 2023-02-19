@@ -1,7 +1,67 @@
+import React from 'react';
+import {useState, useEffect} from 'react';
+import { createURL, grabImage } from '../sanityClient.js';
+import axios from 'axios';
+import {Grid, Avatar, Card, Typography, CardContent, CardMedia, Paper, Zoom, Slide, Fade} from '@mui/material';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import '../../resources/artistSpotlight.css';
+
 const ArtistSpotlight = (props) => {
+
+    const [artistInfo, setArtistInfo] = useState({
+        name: "",
+        description: "",
+        image: ""
+    });
+    const [artistImages, setArtistImages] = useState([]);
+    const ARTIST_URL = createURL("artist");
+    useEffect(() => {
+        axios.get(ARTIST_URL)
+        .then((response) => {
+            let temp = response.data.result[0];
+            setArtistInfo({
+                name: temp.name,
+                description: temp.blurb,
+                image: grabImage(temp.Image.asset)
+            });
+            let tempArray = [];
+            temp.imagesGallery.forEach((i, key) => {
+                tempArray.push(grabImage(i.asset));
+            });
+            setArtistImages(tempArray);
+        });
+    }, [ARTIST_URL]);
+
+    console.log(artistImages);
     return  (
-        <div>
-            
+        <div style = {{marginTop: 50, marginLeft: 10, marginRight: 10}}>
+            <Fade {...(artistInfo.name != "" ? { timeout: 1000 } : {})}  in={artistInfo.name != ""} mountOnEnter unmountOnExit>
+            <Grid container  alignItems = "flex-start" justifyContent = "space-evenly" >
+                    <Grid style = {{margin: 10}} align = "center" item xs = {12} md = {5} sx={{ fontFamily: 'monospace', padding: "10px" }} >
+                        <h1 className = "header">
+                            {artistInfo.name}
+                        </h1>
+                        <CardMedia >
+                            <Avatar src = {artistInfo.image}  sx = {{width: 300, height: 300, border: "5px solid #efaf40", marginBottom: "20px"}}/>
+                        </CardMedia>
+                        <Typography  variant='subtitle1' sx={{ fontFamily: "Playfair Display, serif", align: "center", padding: '10px', borderRadius: '10px'  }}>
+                            {artistInfo.description}
+                        </Typography>
+                    </Grid>
+                <Grid item xs = {12} md = {6} style = {{margin: 10}} >
+                <Carousel autoPlay = {true} infiniteLoop = {true} >
+                        {artistImages.map((img, key) => {
+                            return(
+                                <div style = {{height: "700px"}} key = {key}>
+                                    <img  alt = "" src = {img}/>
+                                </div>  
+                            )
+                        })}
+                    </Carousel>
+                </Grid>
+            </Grid>
+            </Fade>
         </div>
     )
 }
