@@ -1,10 +1,9 @@
-import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Link, Typography, Button } from '@mui/material';
+import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Link, Typography, Button, Avatar } from '@mui/material';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import { createURL } from './sanityClient.js';
-import axios from 'axios';
-import { useEffect } from 'react'
+// import { createURL } from './sanityClient.js';
+// import axios from 'axios';
+// import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 
 
@@ -30,7 +29,7 @@ const Navbar = (props) => {
     const currLoc = useLocation().pathname;
     return (
         <Box sx = {{flexGrow: 1, marginBottom: "20px"}}>
-            <AppBar position = "fixed" style = {{background: "#84c3eb", boxShadow: 'none'}}>
+            <AppBar position = "fixed" style = {{background: "#ffffff"}}>
                 <Toolbar disableGutters sx = {{paddingRight: "20px", paddingLeft: "20px"}}>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton onClick = {handleOpenNavMenu}>
@@ -59,12 +58,10 @@ const Navbar = (props) => {
                     </Box>
                     <Box>
                         <Link href = "/">
-                            <IconButton>
-                                <HomeIcon />
-                            </IconButton>
+                                <Avatar variant = "square" src ={require("../resources/logo.png")}/>
                         </Link>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "flex-end">
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "center">
                         {menuItems.map((m) => (
 
                         <Link href = {m.to} style = {{textDecoration: 'none', color: 'white'}}>
@@ -72,7 +69,10 @@ const Navbar = (props) => {
                                 variant = {currLoc === m.to ? "contained": "normal"}
                                 key={m}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block', fontFamily: "Playfair Display, serif", textTransform: 'none', backgroundColor: currLoc ===  m.to ? "#815299": "", borderRadius: "20px" }}
+                                
+                                sx={{  ':hover': {
+                                    bgcolor: '#efaf40', 
+                                    color: 'white'}, my: 2, color: currLoc === m.to ? "white": "black", display: 'block', fontFamily: "HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif", textTransform: 'none', backgroundColor: currLoc ===  m.to ? "#815299": "", borderRadius: "20px" }}
                             >
                                 {m.title}
                             </Button>
