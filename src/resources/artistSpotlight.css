@@ -1,7 +1,8 @@
-.header {
+.artist-header {
     text-align:center; font-size:12px; text-transform:uppercase; color:#222; letter-spacing:1px;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-    Helvetica, Arial, "Lucida Grande", sans-serif; font-weight:600; word-spacing: "2em"; 
+ font-weight:600; word-spacing: "2em"; font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+
+
   }
 
 .zoom {
@@ -13,4 +14,7 @@
   .thought:hover {
     transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
-
+.artist-description {
+  font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: black;
+}

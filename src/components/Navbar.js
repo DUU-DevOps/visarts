@@ -5,6 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 // import axios from 'axios';
 // import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
+import '../resources/navbar.css';
 
 
 
@@ -57,22 +58,21 @@ const Navbar = (props) => {
                         </Menu>
                     </Box>
                     <Box>
-                        <Link href = "/">
-                                <Avatar variant = "square" src ={require("../resources/logo.png")}/>
+                        <Link href = "/" className = "visarts" style =  {{textDecoration: 'none'}}>
+                                duu VisArts
                         </Link>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "center">
                         {menuItems.map((m) => (
 
-                        <Link href = {m.to} style = {{textDecoration: 'none', color: 'white'}}>
+                        <Link className = "navlink" href = {m.to} style = {{textDecoration: 'none'}}>
                             <Button
                                 variant = {currLoc === m.to ? "contained": "normal"}
                                 key={m}
                                 onClick={handleCloseNavMenu}
-                                
                                 sx={{  ':hover': {
                                     bgcolor: '#efaf40', 
-                                    color: 'white'}, my: 2, color: currLoc === m.to ? "white": "black", display: 'block', fontFamily: "HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif", textTransform: 'none', backgroundColor: currLoc ===  m.to ? "#815299": "", borderRadius: "20px" }}
+                                    color: 'white'}, my: 2, color: currLoc === m.to ? "white": "black", display: 'block',  textTransform: 'none', backgroundColor: currLoc ===  m.to ? "#815299": "", borderRadius: "20px" }}
                             >
                                 {m.title}
                             </Button>

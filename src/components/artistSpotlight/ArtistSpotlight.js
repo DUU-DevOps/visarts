@@ -38,7 +38,7 @@ const ArtistSpotlight = (props) => {
         <div style = {{marginTop: 70, marginLeft: 10, marginRight: 10}}>
             <Fade {...(artistInfo.name !== "" ? { timeout: 1000 } : {})}  in={artistInfo.name !== ""} mountOnEnter unmountOnExit>
             <Grid container  alignItems = "flex-start" justifyContent = "space-between" >
-                    <Grid style = {{margin: 10}} align = "center" item xs = {12} md = {5} sx={{ fontFamily: 'monospace', padding: "10px" }} >                       
+                    <Grid style = {{margin: 10}} align = "center" item xs = {12} md = {5} sx={{  padding: "10px" }} >                       
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style = {{ marginBottom: -100, transform: "scale(1.1)",}} className = "filter" >
                             <defs>
                                 <clipPath id="user-space" clipPathUnits="userSpaceOnUse" >
@@ -46,14 +46,14 @@ const ArtistSpotlight = (props) => {
                                 </clipPath>
                             </defs>
                             <text x="320" dy = "-10" >
-                            <textPath xlinkHref="#curve" className = "header" >
+                            <textPath xlinkHref="#curve" className = "artist-header" >
                                     {artistInfo.name}
                             </textPath>
                             </text>
                             <image width="100%" height="100%"  xlinkHref= {artistInfo.image} clipPath= "url(#user-space)"/>
                         </svg>
 
-                        <Typography variant='subtitle1' sx={{ fontFamily: "HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif", textAlign: "left", padding: '10px', borderRadius: '10px'  }}>
+                        <Typography className = "artist-description" sx={{  textAlign: "left", padding: '10px', borderRadius: '10px'  }}>
                         {artistInfo.description}
                         </Typography>
 

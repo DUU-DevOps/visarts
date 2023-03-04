@@ -3,8 +3,46 @@ body {
 
   }
 
-  .statement {
+  .home-statement-header {
     text-align:right; color:#ffffff; line-height: 120%;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-    Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
   }
+
+  .home-statement-text {
+    text-align:right; color:#ffffff; line-height: 140%;
+    font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  .home-statement-text::after{
+    display:block
+    
+  }
+  
+  .spotlight-text {
+    text-align:right; color:#000000; line-height: 140%; font-size: 50px;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    margin-top: 100px;
+  }
+
+  .home-artist-zoom {
+    transition: transform .4s;
+  }
+    .home-artist-zoom:hover {
+      transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+    .home-artist-zoom:hover {
+      transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+    .underline-magical {
+      background-image: linear-gradient(120deg, #efaf40 0%, #815299 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.2em;
+      background-position: 0 88%;
+      transition: background-size 0.25s ease-in;
+      text-decoration: 'none';
+    }
+    .underline-magical:hover{
+      background-size: 100% 88%;
+    }
+  
+    
