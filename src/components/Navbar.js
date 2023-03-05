@@ -1,32 +1,45 @@
 import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Link, Typography, Button, Avatar } from '@mui/material';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-// import { createURL } from './sanityClient.js';
-// import axios from 'axios';
-// import { useEffect } from 'react'
+import { createURL, grabImage } from './sanityClient.js';
+import axios from 'axios';
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import '../resources/navbar.css';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 
 
 const Navbar = (props) => {
     const menuItems = require('../resources/menuItems.json').menuItems;
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [links, setLinks] = useState([]);
+
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-
-    // const ARTIST_URL = createURL("artist");
-    // useEffect(() => {
-    //     axios.get(ARTIST_URL)
-    //     .then((response) => {
-    //         console.log(response);
-    //     });
-    // }, [ARTIST_URL]);
-
+    const LINK_URL = createURL("socialLink");
+    useEffect(() => {
+        axios.get(LINK_URL)
+        .then((response) => {
+            let temp = [];
+            console.log(response.data.result);
+            response.data.result.forEach((link) => {
+                temp.push({
+                    type: link.type,
+                    url: link.url,
+                })
+            })
+            setLinks(temp);
+        });
+    }, [LINK_URL]);
+    console.log(links)
     const currLoc = useLocation().pathname;
     return (
         <Box sx = {{flexGrow: 1, marginBottom: "20px"}}>
@@ -62,9 +75,8 @@ const Navbar = (props) => {
                                 duu VisArts
                         </Link>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "center">
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "flex-end">
                         {menuItems.map((m) => (
-
                         <Link className = "navlink" href = {m.to} style = {{textDecoration: 'none'}}>
                             <Button
                                 variant = {currLoc === m.to ? "contained": "normal"}
@@ -78,6 +90,36 @@ const Navbar = (props) => {
                             </Button>
                         </Link>
                         ))}
+                    </Box>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '10px' }}} justifyContent = "flex-end">
+                        {links.map((link) => {
+                            let temp = link.type;
+                            let element = null;
+                            switch (temp) {
+                                case 'facebook':
+                                    element = <FacebookIcon />;
+                                    break;
+                                case 'instagram':
+                                    element = <InstagramIcon />;
+                                    break;
+                                case 'twitter':
+                                    element = <TwitterIcon />;
+                                    break;
+                                case 'pinterest':
+                                    element = <PinterestIcon />;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            return (
+                                <Link href = {link.url}>
+                                    <IconButton>
+                                    {element}   
+                                    </IconButton>
+                                </Link>
+                            );
+                            })
+                        }
                     </Box>
                 </Toolbar>
             </AppBar>

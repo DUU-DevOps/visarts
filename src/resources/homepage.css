@@ -4,7 +4,7 @@ body {
   }
 
   .home-statement-header {
-    text-align:right; color:#ffffff; line-height: 120%;
+    text-align: right; color:#ffffff; line-height: 120%;
     font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
   }
 
@@ -14,13 +14,37 @@ body {
   }
   .home-statement-text::after{
     display:block
-    
+
   }
   
-  .spotlight-text {
-    text-align:right; color:#000000; line-height: 140%; font-size: 50px;
+  .spotlight-header {
+    color:#000000; line-height: 140%; font-size: 50px;
     font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-    margin-top: 100px;
+  }
+
+  .spotlight-text {
+    font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 140%;
+
+  }
+
+  .gallery-header {
+    color:#000000; line-height: 140%; font-size: 50px;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .gallery-text {
+    font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 140%;
+
+  }
+
+
+
+  .link-zoom {
+    transition: transform 1s;
+  }
+
+  .link-zoom:hover {
+    transform: scale(1.1);
   }
 
   .home-artist-zoom {
@@ -36,13 +60,15 @@ body {
     .underline-magical {
       background-image: linear-gradient(120deg, #efaf40 0%, #815299 100%);
       background-repeat: no-repeat;
-      background-size: 100% 0.2em;
+      background-size: 0% 0.2em;
       background-position: 0 88%;
       transition: background-size 0.25s ease-in;
-      text-decoration: 'none';
     }
     .underline-magical:hover{
-      background-size: 100% 88%;
+      background-size: 100% 10%;
     }
-  
-    
+
+    @media only screen and (max-width: 900px){
+      .home-statement-header{text-align:center;}
+      .home-statement-text{text-align:center;}
+  }
