@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useEffect, useState, useRef } from 'react'
 import FacebookIcon from '../../resources/facebook.png';
 import PinterestIcon from '../../resources/pinterest.png';
-import InstagramIcon from '../../resources/instagram.png';
+import InstagramIcon from '../../resources/instagram.webp';
 import TwitterIcon from '../../resources/twitter.png';
 import useIntersection from '../useIntersection.js';
 
@@ -83,7 +83,7 @@ const Homepage = (props) => {
             <Grid container spacing = {3} justifyContent = "space-between" style = {{ backgroundColor: "#ffffff", padding: '40px'}}>
                 <Grid item xs = {12} md = {6}  alignItems = "center" display = "flex">
                     <Grid container>
-                        <Grid item xs = {12} justifyContent = "center">
+                        <Grid item xs = {12} justifyContent = "center" style = {{paddingRight: "20px"}}>
                             <h1 className = "spotlight-header">Check out <span className = "underline-magical">{artistInfo.name}'s</span> work.</h1>
                             <p className = "spotlight-text">
                                 {content.spotlightText}

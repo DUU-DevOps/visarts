@@ -1,8 +1,6 @@
 .artist-header {
-    text-align:center; font-size:12px; text-transform:uppercase; color:#222; letter-spacing:1px;
+    text-align:center; font-size:40px; color:#222; letter-spacing:1px;
  font-weight:600; word-spacing: "2em"; font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-
-
   }
 
 .zoom {
@@ -16,5 +14,19 @@
   }
 .artist-description {
   font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
-  color: black;
+  color: black; text-align: left; font-size: 18px; line-height: 140%; text-align: center;
+}
+
+.spotlight-header {
+  text-align:left; font-size:36px; text-transform:none; color:#222; letter-spacing:1px;
+ font-weight:600; word-spacing: "2em"; font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.galley-header {
+  text-align:center; font-size:36px; text-transform:none; color:#222; letter-spacing:1px;
+ font-weight:600; word-spacing: "2em"; font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+.gallery-text {
+  text-align:center; font-size:18px; text-transform:none; color:#222; letter-spacing:1px; line-height: 140%;
+   word-spacing: "2em"; font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
 }
