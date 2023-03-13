@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Avatar, Box, Link, IconButton, Slide, Fade, Button} from '@mui/material';
+import {Grid, Avatar, Box, IconButton, Slide, Fade, Button} from '@mui/material';
 import  '../../resources/homepage.css';
 import { createURL, grabImage } from '../sanityClient.js';
 import axios from 'axios';
@@ -9,6 +9,7 @@ import PinterestIcon from '../../resources/pinterest.png';
 import InstagramIcon from '../../resources/instagram.webp';
 import TwitterIcon from '../../resources/twitter.png';
 import useIntersection from '../useIntersection.js';
+import { Link } from "react-router-dom"
 
 
 
@@ -59,6 +60,7 @@ const Homepage = (props) => {
     return  (
         <Fade {...(content.image !== "" ? { timeout: 1000 } : {})}  in={content.image !== ""} >
         <div>
+        <Link to="/">Your desired link.</Link>
             <Grid container justifyContent = "flex-start"  alignItems = "center" style = {{position: "relative", backgroundImage: `url(${content.image})`, backgroundSize: "100% 100%", width: "100%", height: "640px"}}>
                 <Grid item xs = {12} sm = {10} md = {8} lg = {6} style = {{ backgroundColor: "#89c3db", position: "absolute"}}>
                     <Grid container style = {{padding: "20px"}} justifyContent = "center" >
@@ -83,7 +85,7 @@ const Homepage = (props) => {
             <Grid container spacing = {3} justifyContent = "space-between" style = {{ backgroundColor: "#ffffff", padding: '40px'}}>
                 <Grid item xs = {12} md = {6}  alignItems = "center" display = "flex">
                     <Grid container>
-                        <Grid item xs = {12} justifyContent = "center" style = {{paddingRight: "20px"}}>
+                        <Grid item xs = {12} justifyContent = "center" >
                             <h1 className = "spotlight-header">Check out <span className = "underline-magical">{artistInfo.name}'s</span> work.</h1>
                             <p className = "spotlight-text">
                                 {content.spotlightText}
@@ -113,7 +115,7 @@ const Homepage = (props) => {
                                     
                                     }
                                     return (
-                                        <Link href = {link.url}>
+                                        <Link to = {link.url}>
                                             <IconButton className = "link-zoom">
                                                 <Avatar src = {image} />
                                             </IconButton>
@@ -132,7 +134,7 @@ const Homepage = (props) => {
                 </Grid>
                 <Grid item xs = {12} md = {5} ref = {artistRef}>
                     <Fade {...(artistInViewport ? { timeout: 1000 } : {})}  in={artistInViewport} mountOnEnter unmountOnExit>
-                        <Link href = "/artist-spotlight">
+                        <Link to = "/artist-spotlight">
                             <IconButton>
                                 <Avatar className = "home-artist-zoom" src ={artistInfo.image} style = {{width: "400px", height: "400px", border: "10px solid #815299"}}/>
                             </IconButton>
@@ -153,7 +155,7 @@ const Homepage = (props) => {
                         {content.galleryText}
                     </p>
                     <Fade {...(appInViewport ? { timeout: 1000 } : {})}  in={appInViewport} mountOnEnter unmountOnExit>
-                        <Link href = {content.galleryURL} style = {{textDecoration: 'none', display: "flex", justifyContent: "center"}}  >
+                        <Link to = {content.galleryURL} style = {{textDecoration: 'none', display: "flex", justifyContent: "center"}}  >
                             <Button
                                 variant = "contained"
                                 sx={{  ':hover': {
