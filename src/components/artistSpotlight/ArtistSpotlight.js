@@ -1,8 +1,8 @@
 import React from 'react';
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect } from 'react';
 import { createURL, grabImage } from '../sanityClient.js';
 import axios from 'axios';
-import {Grid,  Typography, Fade, Slide, Link, IconButton, Avatar} from '@mui/material';
+import {Grid, Fade, Slide, Link, IconButton, Avatar} from '@mui/material';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../../resources/artistSpotlight.css';
@@ -10,7 +10,6 @@ import FacebookIcon from '../../resources/facebook.png';
 import PinterestIcon from '../../resources/pinterest.png';
 import InstagramIcon from '../../resources/instagram.webp';
 import TwitterIcon from '../../resources/twitter.png';
-import useIntersection from '../useIntersection.js';
 
 const ArtistSpotlight = (props) => {
 
@@ -45,7 +44,7 @@ const ArtistSpotlight = (props) => {
             temp.imagesGallery.forEach((i, key) => {
                 tempArray.push(
                     {
-                        key, key,
+                        key: key,
                         image: grabImage(i.image.asset),
                         blurb: i.blurb,
                         title: i.title
@@ -73,7 +72,7 @@ const ArtistSpotlight = (props) => {
                         <image width="100%" height="100%"  xlinkHref= {artistInfo.image} clipPath= "url(#user-space)"/>
                     </svg>
                 </Grid>
-                <Grid item xs = {12} md = {6} style = {{paddingRight: "20px"}}>
+                <Grid item xs = {12} md = {6} style = {{padding: "20px"}}>
                     <h1 className = "artist-header">
                         {artistInfo.name}
                     </h1>
@@ -127,7 +126,7 @@ const ArtistSpotlight = (props) => {
                 </em>
                 <div style = {{backgroundColor: "#efaf40", width: "60px", height: "3px"}}/>
             </p>
-            <Grid container style = {{backgroundColor: "white", marginTop: "200px"}} justifyContent = "center">
+            <Grid container style = {{backgroundColor: "white", marginTop: "200px"}} spacing = {3} justifyContent = "center">
                 <Grid item xs = {12} md = {5} style = {{display: "flex", alignItems: "center",  backgroundColor: "#84c3eb90", paddingLeft: "20px", paddingRight: "20px"}}>
                     {artistImages.find(i => i.key === imageIndex) &&
                     <div>
