@@ -36,7 +36,7 @@ const AlumniPage = (props) => {
                 {alumni.map((a) => {
                     return (
                         <Grow in = {alumni.length > 0} {...(alumni.length > 0 ? { timeout: a.del} : {})}>
-                            <Grid  item xs = {4} >
+                            <Grid  item xs = {10} sm = {6} md = {4} >
                                 <Card className = "zoom" raised style = {{justifyContent: 'center', display: 'flex', backgroundColor:  "#84c3eb90"}}>
                                     <CardContent >
                                         <CardMedia style ={{display: "flex", justifyContent: "center"}}>

@@ -35,7 +35,7 @@ const MeetUs = (props) => {
                 {people.map((a) => {
                     return (
                         <Grow in = {people.length > 0} {...(people.length > 0 ? { timeout: a.del} : {})} >
-                            <Grid  item xs = {4} >
+                            <Grid  item xs = {12} sm = {6} md = {4}>
                                 <div style = {{display: "flex", justifyContent: "center"}}>
                                     <Avatar variant = "square" sx={{ width: 300, height:300}} src = {a.image} />
                                 </div>

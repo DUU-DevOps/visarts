@@ -33,6 +33,7 @@ body {
   }
 
   .gallery-text {
+    color: #000000;
     font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 140%;
   }
 
