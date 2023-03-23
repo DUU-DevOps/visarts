@@ -59,7 +59,7 @@ const GetInvolved = (props) => {
                     {content.contacts.map((c) => {
                         return (
                             <Grow in = {content.contacts.length > 0} {...(content.contacts.length > 0 ? { timeout: c.del} : {})}>
-                                <Grid item xs = {12} sm = {3}  style = {{justifyContent: 'center', display: 'flex'}} >
+                                <Grid item xs = {12} sm = {6} md = {3}  style = {{justifyContent: 'center', display: 'flex'}} >
                                         <CardContent>
                                             <CardMedia>
                                                 <Avatar className = "zoom" sx={{ width: 200, height:200, display: "flex", justifyContent: "center"}} src = {c.icon} />
