@@ -1,4 +1,4 @@
-import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Link, Typography, Button, Avatar } from '@mui/material';
+import {AppBar, Box, Toolbar, Menu, MenuItem, IconButton, Typography, Button, Avatar } from '@mui/material';
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { createURL, grabImage } from './sanityClient.js';
@@ -10,6 +10,7 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { Link } from 'react-router-dom'
 
 
 
@@ -71,13 +72,13 @@ const Navbar = (props) => {
                         </Menu>
                     </Box>
                     <Box>
-                        <Link href = "/" className = "visarts" style =  {{textDecoration: 'none'}}>
+                        <Link to = "/" className = "visarts" style =  {{textDecoration: 'none'}}>
                                 duu VisArts
                         </Link>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', gap: '30px' }}} justifyContent = "flex-end">
                         {menuItems.map((m) => (
-                        <Link className = "navlink" href = {m.to} style = {{textDecoration: 'none'}}>
+                        <Link className = "navlink" to = {m.to} style = {{textDecoration: 'none'}}>
                             <Button
                                 variant = {currLoc === m.to ? "contained": "normal"}
                                 key={m}
