@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import {Grid, Avatar, Grow, Card, CardContent, CardMedia } from '@mui/material';
 
+// Deprecated
 
 const AlumniPage = (props) => {
     const ALUMNI_URL = createURL("alumni");

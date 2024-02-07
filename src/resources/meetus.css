@@ -1,0 +1,20 @@
+
+
+.page-header {
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
+    border-bottom: 0.25rem solid #000000;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 50rem;
+    color: #000000;
+}
+
+
+.bio-text {
+    font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 140%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 50rem;
+}

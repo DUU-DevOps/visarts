@@ -43,8 +43,8 @@ const Navbar = (props) => {
     console.log(links)
     const currLoc = useLocation().pathname;
     return (
-        <Box sx = {{flexGrow: 1, marginBottom: "20px"}}>
-            <AppBar position = "fixed" style = {{background: "#ffffff"}}>
+        <Box sx = {{flexGrow: 1}}>
+            <AppBar position='relative' style = {{background: "#ffffff", zIndex: '1'}}>
                 <Toolbar disableGutters sx = {{paddingRight: "20px", paddingLeft: "20px"}}>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton onClick = {handleOpenNavMenu}>

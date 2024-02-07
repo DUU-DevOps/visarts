@@ -15,10 +15,6 @@
         {
             "title": "Get Involved",
             "to": "/get-involved"
-        },
-        {
-            "title": "Alumni",
-            "to": "/alumni"
         }
     ]
 }

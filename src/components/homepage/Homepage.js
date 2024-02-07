@@ -60,7 +60,6 @@ const Homepage = (props) => {
     return  (
         <Fade {...(content.image !== "" ? { timeout: 1000 } : {})}  in={content.image !== ""} >
         <div>
-        <Link to="/">Your desired link.</Link>
             <Grid container justifyContent = "flex-start"  alignItems = "center" style = {{position: "relative", backgroundImage: `url(${content.image})`, backgroundSize: "100% 100%", width: "100%", height: "640px"}}>
                 <Grid item xs = {12} sm = {10} md = {8} lg = {6} style = {{ backgroundColor: "#89c3db", position: "absolute"}}>
                     <Grid container style = {{padding: "20px"}} justifyContent = "center" >
