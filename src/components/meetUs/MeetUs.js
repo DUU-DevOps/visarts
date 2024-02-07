@@ -89,7 +89,7 @@ const MeetUs = (props) => {
 
     return  (
         <div style={{padding: '1rem'}}>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div >
                 <h1 className='page-header'>
                     Meet Us
                 </h1>

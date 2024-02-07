@@ -1,13 +1,8 @@
 
 
 .page-header {
-    font-family: 'EB Garamond', Georgia, 'Times New Roman', Times, serif;
-    border-bottom: 0.25rem solid #000000;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: 50rem;
-    color: #000000;
+    text-align:left; font-size:36px; text-transform:none; color:#222; letter-spacing:1px;
+ font-weight:600; word-spacing: "2em"; font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
 
 
